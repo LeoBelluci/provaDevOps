@@ -1,9 +1,10 @@
-name: Deploy git pages
+name: Deploy para GitHub Pages Prova
 
+# ação em qualquer push 
 on:
   push:
     branches: ["main"]   
-   
+    
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -20,13 +21,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Configure Pages git pages
+      - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Deploy para o git
+      - name: Upload artifact (site files)
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./
 
-      - name: Deploy para o git pages
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
